@@ -60,7 +60,7 @@ include (__DIR__ . '/includes/function.php');
             <label for="pass-gen">Inserisci la lunghezza della password da generare:</label>
             <input type="number" name="pass-gen" id="pass-gen" placeholder="Inserisci un numero" class="border-2 p-2 rounded-lg" min="0">
             <button type="submit" class="border-2 p-2 rounded-lg mb-5">Send</button>
-            <p class="pt-5"><?= "La tua password randomica di $number caratteri è:" . " " ?> <strong class="border-2 p-2 rounded-lg"> <?= generatePassword($number) ?></strong></p>
+            <p class="pt-5 flex items-center gap-2"><?= "La tua password randomica di $number caratteri è:" . "  " ?> <strong class="border-2 p-2 rounded-lg inline-block min-w-16 h-8 flex items-center" > <?= generatePassword($number) ?></strong></p>
         </form>
     </div>
 
