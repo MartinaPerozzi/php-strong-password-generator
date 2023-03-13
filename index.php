@@ -1,7 +1,26 @@
 <?php 
-$characters ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?.&%-_";
-$password_lenght= $_GET['pass-gen'];
-var_dump($password_lenght);
+// Prendi il valore numerico dell'utente (se c'è)
+$password_length= $_GET['pass-gen']?? "";
+$number = (int)$password_length;
+var_dump($number);
+
+
+function generatePassword ($number){
+    // Caratteri disponibili per generare la password randomica
+    $characters ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?.&%-_";
+    // Creo una variabile vuota dove mettere il risultato
+    $password= "";
+
+    for ($i=0; $i <$number; $i++){
+        // Crea una password randomica da 0 alla lunghezza di $characters.
+        $random_pass= rand(0, strlen($characters));
+        $password .= $characters[$random_pass];
+
+        return $password;
+    }
+};
+var_dump (generatePassword($number));
+
 ?>
 
 
@@ -35,7 +54,7 @@ var_dump($password_lenght);
         <h1>Password Generator</h1>
         <form action="" method="GET">
             <label for="pass-gen">Inserisci la lunghezza della password da generare:</label>
-            <input type="number" name="pass-gen" id="pass-gen" placeholder="Inserisci un numero" class="border-2">
+            <input type="number" name="pass-gen" id="pass-gen" placeholder="Inserisci un numero" class="border-2" min="0">
             <button type="submit">Send</button>
         </form>
     </div>
